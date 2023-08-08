@@ -24,4 +24,9 @@ public class JdbcMovieRepository implements MovieRepository {
     public List<Movie> getAll() {
         return jdbcTemplate.query("SELECT * FROM movie", BeanPropertyRowMapper.newInstance(Movie.class));
     }
+
+    public List<Movie> getRandomMovies(long seed, int amount) {
+        return jdbcTemplate.query("SELECT * FROM movie ORDER BY RAND(?) LIMIT ?",
+                BeanPropertyRowMapper.newInstance(Movie.class), seed, amount);
+    }
 }
