@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    background-color: #212020;
+    color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333331;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: black;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333331;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+}
+
+.movie-list {
+    padding-left: 1vw;
+}
+
+.movie-list a {
+    color: white;
+    text-decoration: none;
+}
+
+.movie-list a:hover {
+    font-weight: bold;
+}
