@@ -14,19 +14,22 @@ public class JdbcMovieRepository implements MovieRepository {
     JdbcTemplate jdbcTemplate;
 
     public int insert(Movie movie) {
-        return jdbcTemplate.update("INSERT INTO movie (id, title) VALUES(?, ?)", movie.getId(), movie.getTitle());
+        String sql = "INSERT INTO movie (id, title) VALUES(?, ?)";
+        return jdbcTemplate.update(sql, movie.getId(), movie.getTitle());
     }
 
     public int delete(UUID id) {
-        return jdbcTemplate.update("DELETE FROM movie WHERE id=?", id);
+        String sql = "DELETE FROM movie WHERE id=?";
+        return jdbcTemplate.update(sql, id);
     }
 
     public List<Movie> getAll() {
-        return jdbcTemplate.query("SELECT * FROM movie", BeanPropertyRowMapper.newInstance(Movie.class));
+        String sql = "SELECT * FROM movie";
+        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Movie.class));
     }
 
     public List<Movie> getRandomMovies(long seed, int amount) {
-        return jdbcTemplate.query("SELECT * FROM movie ORDER BY RAND(?) LIMIT ?",
-                BeanPropertyRowMapper.newInstance(Movie.class), seed, amount);
+        String sql = "SELECT * FROM movie ORDER BY RAND(?) LIMIT ?";
+        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Movie.class), seed, amount);
     }
 }
