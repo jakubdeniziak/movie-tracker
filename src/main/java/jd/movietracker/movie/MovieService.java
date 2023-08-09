@@ -1,9 +1,12 @@
 package jd.movietracker.movie;
 
+import jd.movietracker.responseparser.BasicResponseParser;
+import jd.movietracker.responseparser.ResponseParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
@@ -23,6 +26,12 @@ public class MovieService {
             movie.setId(UUID.randomUUID());
         }
         repository.insert(movie);
+    }
+
+    public void deleteMovies(String request) {
+        ResponseParser parser = new BasicResponseParser();
+        List<String> moviesToDelete = parser.parseRequestWithCheckboxesWithoutValue(request);
+        moviesToDelete.forEach(movieId -> repository.delete(movieId));
     }
 
     public List<Movie> getFeaturedToday() {

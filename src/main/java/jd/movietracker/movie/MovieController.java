@@ -1,13 +1,13 @@
 package jd.movietracker.movie;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.apache.logging.log4j.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -32,6 +32,19 @@ public class MovieController {
     @PostMapping("/new-movie")
     public String newMovieSubmit(@ModelAttribute Movie movie, Model model) {
         service.insertNew(movie);
+        return movies(model);
+    }
+
+    @GetMapping("/delete-movies")
+    public String deleteMovies(Model model) {
+        List<Movie> movies = service.getAll();
+        model.addAttribute("movies", movies);
+        return "delete-movies";
+    }
+
+    @PostMapping("/delete-movies")
+    public String deleteMoviesSubmit(@RequestBody String requestBody, Model model) {
+        service.deleteMovies(requestBody);
         return movies(model);
     }
 }

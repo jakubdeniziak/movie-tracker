@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public interface MovieRepository {
     int insert(Movie movie);
-    int delete(UUID id);
+    int delete(String id);
     List<Movie> getAll();
     List<Movie> getRandomMovies(long seed, int amount);
 }

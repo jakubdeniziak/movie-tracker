@@ -18,7 +18,7 @@ public class JdbcMovieRepository implements MovieRepository {
         return jdbcTemplate.update(sql, movie.getId().toString(), movie.getTitle());
     }
 
-    public int delete(UUID id) {
+    public int delete(String id) {
         String sql = "DELETE FROM movie WHERE id=?";
         return jdbcTemplate.update(sql, id);
     }
