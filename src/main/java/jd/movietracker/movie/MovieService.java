@@ -21,6 +21,10 @@ public class MovieService {
         return repository.getAll();
     }
 
+    public Movie getById(String id) {
+        return repository.getById(id);
+    }
+
     public void insertNew(Movie movie) {
         if(movie.getId() == null) {
             movie.setId(UUID.randomUUID());

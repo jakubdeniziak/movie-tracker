@@ -13,21 +13,31 @@ public class JdbcMovieRepository implements MovieRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    @Override
     public int insert(Movie movie) {
         String sql = "INSERT INTO movie (id, title, director, language, running_time) VALUES(?, ?, ?, ?, ?)";
         return jdbcTemplate.update(sql, movie.getId().toString(), movie.getTitle(), movie.getDirector(), movie.getLanguage(), movie.getRunningTime());
     }
 
+    @Override
     public int delete(String id) {
         String sql = "DELETE FROM movie WHERE id=?";
         return jdbcTemplate.update(sql, id);
     }
 
+    @Override
     public List<Movie> getAll() {
         String sql = "SELECT * FROM movie";
         return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Movie.class));
     }
 
+    @Override
+    public Movie getById(String id) {
+        String sql = "SELECT * FROM movie WHERE id=?";
+        return jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Movie.class), id);
+    }
+
+    @Override
     public List<Movie> getRandomMovies(long seed, int amount) {
         String sql = "SELECT * FROM movie ORDER BY RAND(?) LIMIT ?";
         return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Movie.class), seed, amount);

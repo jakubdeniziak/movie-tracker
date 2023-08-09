@@ -23,6 +23,13 @@ public class MovieController {
         return "movies";
     }
 
+    @GetMapping("/movies/{id}")
+    public String movie(@PathVariable("id") String id, Model model) {
+        Movie movie = service.getById(id);
+        model.addAttribute("movie", movie);
+        return "movie";
+    }
+
     @GetMapping("/new-movie")
     public String newMovie(Model model) {
         model.addAttribute("movie", new Movie());

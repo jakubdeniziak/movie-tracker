@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="${movie.title}"></title>
+
+        <link rel="stylesheet" th:href="@{/style.css}">
+    </head>
+
+    <body>
+        <header th:replace="fragments/general.html :: header"></header>
+
+        <main>
+            <div>
+                <h2 th:text="${movie.title}"></h2>
+                <h4>ID:</h4>
+                <p th:text="${movie.id}"></p>
+                <h4>Director:</h4>
+                <p th:text="${movie.director}"></p>
+                <h4>Language:</h4>
+                <p th:text="${movie.language}"></p>
+                <h4>Running time:</h4>
+                <p th:text="${movie.runningTime}"></p>
+            </div>
+        </main>
+
+        <footer th:replace="fragments/general.html :: footer"></footer>
+    </body>
+</html>
