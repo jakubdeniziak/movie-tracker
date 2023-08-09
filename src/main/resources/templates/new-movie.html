@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add a new movie</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header th:replace="fragments/general.html :: header"></header>
+
+        <main>
+            <div>
+                <h2>Add a new movie</h2>
+                <form th:action="@{/new-movie}" th:object="${movie}" method="post">
+                    <label for="title">Title:</label>
+                    <br>
+                    <input type="text" id="title" th:field="*{title}">
+                    <br>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </main>
+
+        <footer th:replace="fragments/general.html :: footer"></footer>
+    </body>
+</html>

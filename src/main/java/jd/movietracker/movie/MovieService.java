@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class MovieService {
@@ -15,6 +16,13 @@ public class MovieService {
 
     public List<Movie> getAll() {
         return repository.getAll();
+    }
+
+    public void insertNew(Movie movie) {
+        if(movie.getId() == null) {
+            movie.setId(UUID.randomUUID());
+        }
+        repository.insert(movie);
     }
 
     public List<Movie> getFeaturedToday() {

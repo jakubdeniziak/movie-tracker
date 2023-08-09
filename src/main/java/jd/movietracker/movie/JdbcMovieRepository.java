@@ -15,7 +15,7 @@ public class JdbcMovieRepository implements MovieRepository {
 
     public int insert(Movie movie) {
         String sql = "INSERT INTO movie (id, title) VALUES(?, ?)";
-        return jdbcTemplate.update(sql, movie.getId(), movie.getTitle());
+        return jdbcTemplate.update(sql, movie.getId().toString(), movie.getTitle());
     }
 
     public int delete(UUID id) {
