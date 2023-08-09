@@ -55,3 +55,16 @@ main {
 .movie-list a:hover {
     font-weight: bold;
 }
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid white;
+}
+
+table td {
+    padding: 5px;
+}

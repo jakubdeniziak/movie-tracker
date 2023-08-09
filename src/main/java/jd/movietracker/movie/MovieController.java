@@ -2,6 +2,7 @@ package jd.movietracker.movie;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -13,8 +14,9 @@ public class MovieController {
     private MovieService service;
 
     @GetMapping("/movies")
-    @ResponseBody
-    public List<Movie> movies() {
-        return service.getAll();
+    public String movies(Model model) {
+        List<Movie> movies = service.getAll();
+        model.addAttribute("movies", movies);
+        return "movies";
     }
 }
