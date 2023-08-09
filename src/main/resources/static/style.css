@@ -28,6 +28,10 @@ nav li a:hover {
     background-color: black;
 }
 
+.right {
+    float: right;
+}
+
 footer {
     position: fixed;
     left: 0;
@@ -39,7 +43,7 @@ footer {
     padding: 15px 15px;
 }
 
-.movie-list {
+main {
     padding-left: 1vw;
 }
 

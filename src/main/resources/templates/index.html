@@ -6,15 +6,9 @@
 
         <link rel="stylesheet" href="style.css">
     </head>
+
     <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/movies">Movies</a></li>
-                </ul>
-            </nav>
-        </header>
+        <header th:replace="fragments/general.html :: header"></header>
 
         <main>
             <div class="movie-list">
@@ -27,8 +21,6 @@
             </div>
         </main>
 
-        <footer>
-            &copy; 2023 Jakub Deniziak. All rights reserved
-        </footer>
+        <footer th:replace="fragments/general.html :: footer"></footer>
     </body>
 </html>
