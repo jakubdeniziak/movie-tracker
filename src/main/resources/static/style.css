@@ -65,6 +65,6 @@ table, th, td {
     border: 1px solid white;
 }
 
-table td {
+table td, th {
     padding: 5px;
 }

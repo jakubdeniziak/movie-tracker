@@ -19,11 +19,17 @@
                             <th>Delete</th>
                             <th>ID</th>
                             <th>Title</th>
+                            <th>Director</th>
+                            <th>Language</th>
+                            <th>Running time</th>
                         </tr>
                         <tr th:each="movie : ${movies}">
                             <td><input type="checkbox" th:name="${movie.id}"></td>
                             <td th:text="${movie.id}"></td>
                             <td th:text="${movie.title}"></td>
+                            <td th:text="${movie.director}"></td>
+                            <td th:text="${movie.language}"></td>
+                            <td th:text="${movie.runningTime}"></td>
                         </tr>
                     </table>
                     <br><br>

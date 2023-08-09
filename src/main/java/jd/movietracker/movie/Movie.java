@@ -12,4 +12,7 @@ import java.util.UUID;
 public class Movie {
     private UUID id;
     private String title;
+    private String director;
+    private String language;
+    private String runningTime;
 }
