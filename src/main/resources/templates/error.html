@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="|${error_code} - ${error_type}|"></title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header th:replace="fragments/general.html :: header"></header>
+
+        <main>
+            <h1 th:text="|Error ${error_code}|"></h1>
+            <p th:text="${error_type}"></p>
+        </main>
+
+        <footer th:replace="fragments/general.html :: footer"></footer>
+    </body>
+</html>
