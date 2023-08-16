@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Downloads</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header th:replace="fragments/general.html :: header"></header>
+
+        <main>
+            <div class="movie-list">
+                <h2>Download</h2>
+                <form th:action="@{/download}" th:object="${options}" method="post">
+                    <div>
+                        <h4>Media items to download</h4>
+                        <input type="checkbox" th:field="*{mediaItemsToDownload}" id="movies" th:value="movies">
+                        <label for="movies"> Movies</label>
+                    </div>
+                    <div>
+                        <h4>Format</h4>
+                        <input type="radio" th:field="*{format}" id="json" th:value="json">
+                        <label for="movies"> JSON</label>
+                    </div>
+                    <br>
+                    <input type="submit" value="Download">
+                </form>
+            </div>
+        </main>
+
+        <footer th:replace="fragments/general.html :: footer"></footer>
+    </body>
+</html>
