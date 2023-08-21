@@ -1,7 +1,6 @@
-package jd.movietracker.movie;
+package jd.movietracker.mediaitems.movie;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface MovieRepository {
     int insert(Movie movie);

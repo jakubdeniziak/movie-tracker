@@ -1,9 +1,9 @@
 package jd.movietracker.download;
 
-import jd.movietracker.MediaItem;
+import jd.movietracker.mediaitems.MediaItem;
 import jd.movietracker.filewriters.json.GsonWriter;
 import jd.movietracker.filewriters.json.JsonWriter;
-import jd.movietracker.movie.MovieService;
+import jd.movietracker.mediaitems.movie.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

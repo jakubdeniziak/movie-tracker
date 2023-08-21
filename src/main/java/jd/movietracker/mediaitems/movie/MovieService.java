@@ -1,4 +1,4 @@
-package jd.movietracker.movie;
+package jd.movietracker.mediaitems.movie;
 
 import jd.movietracker.responseparser.BasicResponseParser;
 import jd.movietracker.responseparser.ResponseParser;
@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;

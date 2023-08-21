@@ -1,7 +1,7 @@
 package jd.movietracker;
 
-import jd.movietracker.movie.Movie;
-import jd.movietracker.movie.MovieService;
+import jd.movietracker.mediaitems.movie.Movie;
+import jd.movietracker.mediaitems.movie.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

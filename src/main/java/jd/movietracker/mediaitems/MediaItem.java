@@ -1,4 +1,4 @@
-package jd.movietracker;
+package jd.movietracker.mediaitems;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

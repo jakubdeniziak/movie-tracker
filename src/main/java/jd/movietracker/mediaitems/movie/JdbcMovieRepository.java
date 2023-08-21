@@ -1,4 +1,4 @@
-package jd.movietracker.movie;
+package jd.movietracker.mediaitems.movie;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.UUID;
 
 @Repository("JdbcMovieRepository")
 public class JdbcMovieRepository implements MovieRepository {
