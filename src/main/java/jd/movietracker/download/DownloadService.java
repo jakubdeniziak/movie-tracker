@@ -19,13 +19,13 @@ public class DownloadService {
     public byte[] getItemsToDownload(DownloadOptions options) {
         List<MediaItem> itemsToDownload;
 
-        if(Objects.equals(options.getMediaItemsToDownload(), "movies")) {
+        if (Objects.equals(options.getMediaItemsToDownload(), "movies")) {
             itemsToDownload = new ArrayList<>(movieService.getAll());
         } else {
             return new byte[0];
         }
 
-        if(Objects.equals(options.getFormat(), "json")) {
+        if (Objects.equals(options.getFormat(), "json")) {
             JsonWriter writer = new GsonWriter();
             String jsonString = writer.toJson(itemsToDownload);
             return jsonString.getBytes();
