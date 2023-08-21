@@ -10,7 +10,7 @@ import java.util.List;
 @Repository("JdbcMovieRepository")
 public class JdbcMovieRepository implements MovieRepository {
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public int insert(Movie movie) {

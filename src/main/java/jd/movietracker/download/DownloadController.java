@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class DownloadController {
     @Autowired
-    DownloadService service;
+    private DownloadService service;
 
     @GetMapping("/download")
     public String download(Model model) {

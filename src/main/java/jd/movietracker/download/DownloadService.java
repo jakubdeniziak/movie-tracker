@@ -14,7 +14,7 @@ import java.util.Objects;
 @Service
 public class DownloadService {
     @Autowired
-    MovieService movieService;
+    private MovieService movieService;
 
     public byte[] getItemsToDownload(DownloadOptions options) {
         List<MediaItem> itemsToDownload;
