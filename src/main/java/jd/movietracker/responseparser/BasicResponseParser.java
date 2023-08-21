@@ -6,10 +6,10 @@ public class BasicResponseParser implements ResponseParser {
     @Override
     public List<String> parseRequestWithCheckboxesWithoutValue(String request) {
         String expectedResponse = "on";
-        String concatenationCharacterString = "&";
+        String concatenationCharacter = "&";
 
         request = request.replaceAll("=" + expectedResponse, "");
-        String[] selectedCheckboxesValues = request.split(concatenationCharacterString);
+        String[] selectedCheckboxesValues = request.split(concatenationCharacter);
 
         return List.of(selectedCheckboxesValues);
     }
