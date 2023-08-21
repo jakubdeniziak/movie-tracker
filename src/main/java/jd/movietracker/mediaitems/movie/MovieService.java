@@ -1,17 +1,19 @@
 package jd.movietracker.mediaitems.movie;
 
+import jd.movietracker.seedproviders.DailySeedProvider;
+import jd.movietracker.seedproviders.SeedProvider;
 import jd.movietracker.responseparser.BasicResponseParser;
 import jd.movietracker.responseparser.ResponseParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
 @Service
 public class MovieService {
+    private final SeedProvider seedProvider = new DailySeedProvider();
     @Autowired
     @Qualifier("JdbcMovieRepository")
     private MovieRepository repository;
@@ -39,16 +41,6 @@ public class MovieService {
 
     public List<Movie> getFeaturedToday() {
         int numberOfFeaturedMovies = 2;
-        long seed = getSeedBasedOnTodayDate();
-        return repository.getRandomMovies(seed, numberOfFeaturedMovies);
-    }
-
-    private long getSeedBasedOnTodayDate() {
-        Calendar today = Calendar.getInstance();
-        today.set(Calendar.HOUR, 0);
-        today.set(Calendar.MINUTE, 0);
-        today.set(Calendar.SECOND, 0);
-        today.set(Calendar.MILLISECOND, 0);
-        return today.getTimeInMillis();
+        return repository.getRandomMovies(seedProvider.getSeed(), numberOfFeaturedMovies);
     }
 }
