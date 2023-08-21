@@ -22,7 +22,7 @@ public class DownloadService {
         if(Objects.equals(options.getMediaItemsToDownload(), "movies")) {
             itemsToDownload = new ArrayList<>(movieService.getAll());
         } else {
-            return null;
+            return new byte[0];
         }
 
         if(Objects.equals(options.getFormat(), "json")) {
@@ -30,7 +30,7 @@ public class DownloadService {
             String jsonString = writer.toJson(itemsToDownload);
             return jsonString.getBytes();
         } else {
-            return null;
+            return new byte[0];
         }
     }
 }
