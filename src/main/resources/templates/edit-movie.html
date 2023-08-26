@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit</title>
+
+        <link rel="stylesheet" th:href="style.css">
+    </head>
+
+    <body>
+        <header th:replace="fragments/general.html :: header"></header>
+
+        <main>
+            <div>
+                <h1>Edit movie</h1>
+                <form th:action="|/movies/${movie.id}/edit|" th:object="${movie}" method="post">
+                    <label for="title">Title: </label>
+                    <input type="text" id="title" th:value="${movie.title}" th:field="*{title}">
+                    <br>
+                    <label for="director">Director: </label>
+                    <input type="text" id="director" th:value="${movie.director}" th:field="*{director}">
+                    <br>
+                    <label for="language">Language: </label>
+                    <input type="text" id="language" th:value="${movie.language}" th:field="*{language}">
+                    <br>
+                    <label for="runningTime">Running time: </label>
+                    <input type="text" id="runningTime" th:value="${movie.runningTime}" th:field="*{runningTime}">
+                    <br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </main>
+
+        <footer th:replace="fragments/general.html :: footer"></footer>
+    </body>
+</html>

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -24,6 +25,19 @@ public class MovieController {
         Movie movie = service.getById(id);
         model.addAttribute("movie", movie);
         return "movie";
+    }
+
+    @GetMapping("/movies/{id}/edit")
+    public String editMovie(@PathVariable("id") String id, Model model) {
+        Movie movie = service.getById(id);
+        model.addAttribute("movie", movie);
+        return "edit-movie";
+    }
+
+    @PostMapping("/movies/{id}/edit")
+    public String editMovieSubmit(@ModelAttribute Movie movie, Model model) {
+        service.editMovie(movie);
+        return movies(model);
     }
 
     @GetMapping("/new-movie")

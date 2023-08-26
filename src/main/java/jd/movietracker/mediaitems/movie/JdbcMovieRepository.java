@@ -25,6 +25,12 @@ public class JdbcMovieRepository implements MovieRepository {
     }
 
     @Override
+    public int update(String id, Movie movie) {
+        String query = "UPDATE movie SET title=?, director=?, language=?, running_time=? WHERE id=?";
+        return jdbcTemplate.update(query, movie.getTitle(), movie.getDirector(), movie.getLanguage(), movie.getRunningTime(), id);
+    }
+
+    @Override
     public List<Movie> getAll() {
         String sql = "SELECT * FROM movie";
         return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Movie.class));

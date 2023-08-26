@@ -33,6 +33,11 @@ public class MovieService {
         repository.insert(movie);
     }
 
+    public void editMovie(Movie updatedMovie) {
+        String id = updatedMovie.getId().toString();
+        repository.update(id, updatedMovie);
+    }
+
     public void deleteMovies(String request) {
         ResponseParser parser = new BasicResponseParser();
         List<String> moviesToDelete = parser.parseRequestWithCheckboxesWithoutValue(request);
