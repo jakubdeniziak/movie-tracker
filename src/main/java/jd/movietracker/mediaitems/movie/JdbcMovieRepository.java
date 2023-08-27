@@ -13,21 +13,21 @@ public class JdbcMovieRepository implements MovieRepository {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public int insert(Movie movie) {
+    public void insert(Movie movie) {
         String sql = "INSERT INTO movie (id, title, director, language, running_time) VALUES(?, ?, ?, ?, ?)";
-        return jdbcTemplate.update(sql, movie.getId().toString(), movie.getTitle(), movie.getDirector(), movie.getLanguage(), movie.getRunningTime());
+        jdbcTemplate.update(sql, movie.getId().toString(), movie.getTitle(), movie.getDirector(), movie.getLanguage(), movie.getRunningTime());
     }
 
     @Override
-    public int delete(String id) {
+    public void delete(String id) {
         String sql = "DELETE FROM movie WHERE id=?";
-        return jdbcTemplate.update(sql, id);
+        jdbcTemplate.update(sql, id);
     }
 
     @Override
-    public int update(String id, Movie movie) {
+    public void update(String id, Movie movie) {
         String query = "UPDATE movie SET title=?, director=?, language=?, running_time=? WHERE id=?";
-        return jdbcTemplate.update(query, movie.getTitle(), movie.getDirector(), movie.getLanguage(), movie.getRunningTime(), id);
+        jdbcTemplate.update(query, movie.getTitle(), movie.getDirector(), movie.getLanguage(), movie.getRunningTime(), id);
     }
 
     @Override
