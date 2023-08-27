@@ -23,10 +23,11 @@ public class DownloadController {
 
     @PostMapping("/download")
     public ResponseEntity<byte[]> newMovieSubmit(@ModelAttribute DownloadOptions options) {
+        String fileType = service.getFileType(options);
         byte[] itemsToDownload = service.getItemsToDownload(options);
         return ResponseEntity
                 .ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=items.json")
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=items." + fileType)
                 .contentType(MediaType.APPLICATION_JSON)
                 .contentLength(itemsToDownload.length)
                 .body(itemsToDownload);

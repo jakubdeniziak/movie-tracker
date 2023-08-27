@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DownloadOptions {
     private String mediaItemsToDownload;
-    private String format;
+    private String fileType;
 }

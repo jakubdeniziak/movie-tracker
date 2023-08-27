@@ -21,8 +21,11 @@
                     </div>
                     <div>
                         <h4>Format</h4>
-                        <input type="radio" th:field="*{format}" id="json" th:value="json">
-                        <label for="movies"> JSON</label>
+                        <input type="radio" th:field="*{fileType}" id="txt" th:value="txt">
+                        <label for="txt"> TXT</label>
+                        <br>
+                        <input type="radio" th:field="*{fileType}" id="json" th:value="json">
+                        <label for="json"> JSON</label>
                     </div>
                     <br>
                     <input type="submit" value="Download">
